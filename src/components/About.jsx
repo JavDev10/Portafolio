@@ -44,7 +44,8 @@ function About() {
                 <div>
                     <h4>Analista Programador Junior</h4>
                     <p><strong>ADIPA | Marzo - Actualidad | 2025</strong></p>
-                    <p className='text-description'>Colaboro en el mantenimiento y mejora de la infraestructura backend, implementando soluciones que garanticen la eficiencia, seguridad y escalabilidad del sitio web, además de trabajar en la integración de APIs y bases de datos, ademas de implementar soluciones de automatización.</p>
+                    <p className='text-description'>Colaboro en el mantenimiento y mejora de la infraestructura backend, implementando soluciones que garanticen la eficiencia, seguridad y escalabilidad del sitio web, 
+                        además de trabajar en la integración de APIs y bases de datos e implementar soluciones de automatización.</p>
                     <ul>
                         <li>Laravel</li>
                         <li>Wordpress</li>
