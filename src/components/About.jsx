@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 import "../styles/About.css"
 
 function About() {
     
     const [mostrarCertificados, setMostrarCertificados] = useState(false);
+    const [parent] = useAutoAnimate();
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+    if (mostrarCertificados) {
+      setVisible(true); // mostrar inmediatamente
+    } else {
+      const timeout = setTimeout(() => setVisible(false), 1000); // esperar antes de desmontar
+      return () => clearTimeout(timeout); // limpiar si cambia antes de tiempo
+    }
+  }, [mostrarCertificados]);
 
     const toggleCertificados = () => {
     setMostrarCertificados(prev => !prev);
@@ -99,6 +111,7 @@ function About() {
             </div>
             <div>
                 <a onClick={toggleCertificados}><strong>
+            
                 {mostrarCertificados ? 
                 <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row', gap: '5px'}}>
                     <p>Ocultar información</p>
@@ -114,7 +127,8 @@ function About() {
                 
                 </a>
             </div>
-             {mostrarCertificados && (
+            <div ref={parent}>
+             {visible && (
             <div className={`cert-content ${mostrarCertificados ? 'show' : ''}`}>
                 <div className='cert-box'>
                     <div className='cert-box-header'>
@@ -162,6 +176,7 @@ function About() {
                 </div>
             </div>
              )}
+             </div>
         </section>
         <section className='about-content-skills'>
         </section>
